@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block wrapper %}
+    <div id="select_article">
+        <div id="article1">
+            <strong>{{title1}}</strong>
+            <p>{{context1}}</p>
+        </div>
+        
+        <div id="article2">
+            <strong>{{title2}}</strong>
+            <p>{{context2}}</p>
+        </div>
+
+        <div id="article3">
+            <strong>{{title3}}</strong>
+            <p>{{context3}}</p>
+        </div>
+
+        <div id="select">
+            <form method="POST" id="select_article">
+                <strong>관심이 있는 기사를 모두 선택하세요.</strong><br>
+                <input type="checkbox" name="select_article[]" value="article1">{{title1}}
+                <input type="checkbox" name="select_article[]" value="article2">{{title2}}
+                <input type="checkbox" name="select_article[]" value="article3">{{title3}}<br>
+                <input type="submit" value="제출하기">
+            </form>
+        </div>
+        
+    </div>
+{% endblock %}

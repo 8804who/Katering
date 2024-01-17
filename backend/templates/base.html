@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>  
+        <title>Katering</title>
+        <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+    </head>
+    <body bgcolor="white">
+        <style>
+            * {font-family: Pretendard,'Noto Sans KR', sans-serif;}
+            .category_submit {
+                background-color: #f6b311; 
+                border-width: 0px;
+                font-size: 20px;
+                font-weight: 500;
+            }
+            .category_form{
+                padding-top: 10px;
+            }
+            details>summary {
+                list-style: none;
+            }
+            summary::after {
+                content: ' ►';
+                font-size: 20px;
+            }
+            details[open] summary:after {
+                content: " ▼";
+                font-size: 20px;
+            }
+        </style>
+        <div class="menu" style="width: 400px; height: 200%; background-color: #f6b311; position: fixed; margin-top: -3%; margin-left: -1%;">
+            <div class="title" style="margin-top: -40px; padding-left: 65px;">
+                <img src="{{ url_for('static', path='/img/logo.png') }}" style="width: 240px; height: 80px; position: absolute; margin-top: 100px; margin-left: -5px;">
+            </div>
+
+            <form method="post" action="main" class="category_form" style="margin-top: 15px; margin-left: 60px;">
+                {% if page == 'recommend' %}
+                    <input type="submit" class="category_submit" value="사용자 맞춤 추천 기사" style="font-weight: 700; font-size: 25px; margin-top: 200px; background-color: #fdd44d; border-radius: 15px; height: 50px; width:387px; text-align: left; padding-left: 55px; margin-left: -47px;">
+                {% else %}
+                    <input type="submit" class="category_submit" value="사용자 맞춤 추천 기사" style="font-weight: 700; font-size: 25px; margin-top: 200px; height: 50px; width:340px; text-align: left;">
+                {% endif %}
+            </form>
+            
+            {% if page == 'survey' or page == 'recommend' %}
+                <details>
+            {% else %}
+                <details open>
+            {% endif %}
+                <summary style="font-weight: 700; font-size: 25px; margin-left: 65px; margin-top: 30px;">카테고리</summary>
+                <div class="category" style="margin-top: 10px; margin-left: 80px;">
+                    <form method="post" action="deposit" class="category_form">
+                        {% if page == 'deposit' %}
+                            <input type="submit" class="category_submit" value="예금" style="background-color: #fdd44d; border-radius: 10px 10px 10px 10px; height: 30px; width:387px; text-align: left; padding-left: 88px; margin-left: -67px;">
+                        {% else %}
+                            <input type="submit" class="category_submit" value="예금" style="height: 30px; width:320px; text-align: left; padding-left: 20px;">
+                        {% endif %}
+                    </form>
+                    <form method="post" action="saving" class="category_form">
+                        {% if page == 'saving' %}
+                            <input type="submit" class="category_submit" value="적금" style="background-color: #fdd44d; border-radius: 10px 10px 10px 10px; height: 30px; width:387px; text-align: left; padding-left: 88px; margin-left: -67px;">
+                        {% else %}
+                            <input type="submit" class="category_submit" value="적금" style="height: 30px; width:320px; text-align: left; padding-left: 20px;">
+                        {% endif %}
+                    </form>
+                    <form method="post" action="insurance" class="category_form">
+                        {% if page == 'insurance' %}
+                            <input type="submit" class="category_submit" value="보험/공제" style="background-color: #fdd44d; border-radius: 10px 10px 10px 10px; height: 30px; width:387px; text-align: left; padding-left: 88px; margin-left: -67px;">
+                        {% else %}
+                            <input type="submit" class="category_submit" value="보험/공제" style="height: 30px; width:320px; text-align: left; padding-left: 20px;">
+                        {% endif %}
+                    </form>
+                    <form method="post" action="fund" class="category_form">
+                        {% if page == 'fund' %}
+                            <input type="submit" class="category_submit" value="펀드" style="background-color: #fdd44d; border-radius: 10px 10px 10px 10px; height: 30px; width:387px; text-align: left; padding-left: 88px; margin-left: -67px;">
+                        {% else %}
+                            <input type="submit" class="category_submit" value="펀드" style="height: 30px; width:320px; text-align: left; padding-left: 20px;">
+                        {% endif %}
+                    </form>
+                    <form method="post" action="loan" class="category_form">
+                        {% if page == 'loan' %}
+                            <input type="submit" class="category_submit" value="대출" style="background-color: #fdd44d; border-radius: 10px 10px 10px 10px; height: 30px; width:387px; text-align: left; padding-left: 88px; margin-left: -67px;">
+                        {% else %}
+                            <input type="submit" class="category_submit" value="대출" style="height: 30px; width:320px; text-align: left; padding-left: 20px;">
+                        {% endif %}
+                    </form>
+                    <form method="post" action="subscription" class="category_form">
+                        {% if page == 'subscription' %}
+                            <input type="submit" class="category_submit" value="주택 청약" style="background-color: #fdd44d; border-radius: 10px 10px 10px 10px; height: 30px; width:387px; text-align: left; padding-left: 88px; margin-left: -67px;">
+                        {% else %}
+                            <input type="submit" class="category_submit" value="주택 청약" style="height: 30px; width:320px; text-align: left; padding-left: 20px;">
+                        {% endif %}
+                    </form>
+                    <form method="post" action="ISA" class="category_form">
+                        {% if page == 'ISA' %}
+                            <input type="submit" class="category_submit" value="ISA" style="background-color: #fdd44d; border-radius: 10px 10px 10px 10px; height: 30px; width:387px; text-align: left; padding-left: 88px; margin-left: -67px;">
+                        {% else %}
+                            <input type="submit" class="category_submit" value="ISA" style="height: 30px; width:320px; text-align: left; padding-left: 20px;">
+                        {% endif %}
+                    </form>
+                    <form method="post" action="trust" class="category_form">
+                        {% if page == 'trust' %}
+                            <input type="submit" class="category_submit" value="신탁" style="background-color: #fdd44d; border-radius: 10px 10px 10px 10px; height: 30px; width:387px; text-align: left; padding-left: 88px; margin-left: -67px;">
+                        {% else %}
+                            <input type="submit" class="category_submit" value="신탁" style="height: 30px; width:320px; text-align: left; padding-left: 20px;">
+                        {% endif %}
+                    </form>
+                    <form method="post" action="gold" class="category_form">
+                        {% if page == 'gold' %}
+                            <input type="submit" class="category_submit" value="골드" style="background-color: #fdd44d; border-radius: 10px 10px 10px 10px; height: 30px; width:387px; text-align: left; padding-left: 88px; margin-left: -67px;">
+                        {% else %}
+                            <input type="submit" class="category_submit" value="골드" style="height: 30px; width:320px; text-align: left; padding-left: 20px;">
+                        {% endif %}
+                    </form>
+                    <form method="post" action="foreign_deposit" class="category_form">
+                        {% if page == 'foreign_deposit' %}
+                            <input type="submit" class="category_submit" value="외화예금" style="background-color: #fdd44d; border-radius: 10px 10px 10px 10px; height: 30px; width:387px; text-align: left; padding-left: 88px; margin-left: -67px;">
+                        {% else %}
+                            <input type="submit" class="category_submit" value="외화예금" style="height: 30px; width:320px; text-align: left; padding-left: 20px;">
+                        {% endif %}
+                    </form>
+                </div>
+            </details>
+
+            <div style="background-color: #f4ab00; position: fixed; bottom: 0px; height: 150px; width: 400px;">
+                <div class="user_ui" style="bottom:15px; margin-left:150px; position: fixed; line-height: 25px;">
+                    <p style="font-size: 25px; font-weight: 700;">{{ user_ID }}님, 반갑습니다</p>
+                    <p style="font-size: 25px; font-weight: 700; margin-left: 148px;">Logout</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="wrapper" style="margin-left: 100px;">
+            {% block wrapper %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

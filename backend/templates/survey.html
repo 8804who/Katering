@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block wrapper %}
+<style>
+    #financial_instruments{
+        border-width: 0px 2px 2px 0px;
+        box-shadow: 1px 2px 3px 0px #5c5b5b2d;
+        border-color: #5c5b5b2d;
+        border-style: solid;
+        border-radius: 20px;
+        height: 320px;
+        width: 550px;
+        display: inline-block;
+        position: absolute;
+    }
+    #item_title{
+        height: 60px;
+        width: 530px;
+        margin-top: 50px;
+        text-align: center;
+        font-size: 22px;
+    }
+    #item_information{
+        margin-top: -20px;
+        padding: 0px 20px 0px 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+    #select_checkbox{
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        margin-left: 110px;
+        position: absolute;
+        margin-top: -145px;
+    }
+</style>
+<div id="survey" style = 'margin-top: 30px; margin-left: 200px; padding-bottom: 30px;'>
+    <p style="margin-top: 40px; margin-left: 200px; position: absolute; font-size: 35px; font-weight: 700;">관심 상품 등록</p>
+    <p style="margin-top: 100px; margin-left: 202px; position: absolute; font-size: 25px; font-weight: 500;">회원님을 위한 추천 목록을 생성하기 위해 관심 상품을 등록하는 페이지입니다.</p>
+    <p style="margin-top: 140px; margin-left: 202px; position: absolute; font-size: 25px; font-weight: 500;">관심이 있는 상품을 모두 선택해주세요.</p>
+    <form method = 'POST' id="survey" action="get_survey_result">
+        <div name="instruments" style="margin-top: 20px;">
+            <div id="financial_instruments" name="fi1" style="margin-top: 250px; margin-left:215px;">
+                <div name="title" id="item_title">
+                    <strong>국민수퍼정기예금</strong>
+                </div>
+                
+                <div name="information" id="item_information">
+                    <p>키워드: 예금</p>
+                    <p>기간: 최고 36개월</p>
+                    <p>최고: 연 3.25% (36개월)</p> 
+                </div>
+                
+                <input type="checkbox" name="select_items" value="예금" id="select_checkbox">
+            </div>
+    
+            <div id="financial_instruments" name="fi2" style="margin-top: 250px; margin-left:865px;">
+                <div name="title" id="item_title">
+                    <strong>주택청약종합저축</strong>
+                </div>
+                
+                <div name="information" id="item_information">
+                    <p>키워드: 주택청약</p>
+                    <p>금액: 월 2만원 ~ 월 50만원</p>
+                    <p>최고: 연2.1%(24개월)</p> 
+                </div>
+
+                <input type="checkbox" name="select_items" value="주택청약" id="select_checkbox">
+            </div>
+    
+            <div id="financial_instruments" name="fi3" style="margin-top: 630px; margin-left:215px;">
+                <div name="title" id="item_title">
+                    <strong>직장인우대적금</strong>
+                </div>
+                
+                <div name="information" id="item_information">
+                    <p>키워드: 적금</p>
+                    <p>금액: 1만원 ~ 300만원</p>
+                    <p>최고: 연4.5% (36개월)</p> 
+                </div>
+
+                <input type="checkbox" name="select_items" value="적금" id="select_checkbox">
+            </div>
+    
+            <div id="financial_instruments" name="fi4" style="margin-top: 630px; margin-left:865px;">
+                <div name="title" id="item_title">
+                    <strong>KB전세금안심대출</strong>
+                </div>
+                
+                <div name="information" id="item_information">
+                    <p>키워드: 대출</p>
+                    <p>기간: 최장 25개월</p>
+                    <p>최고: 4억원</p> 
+                </div>
+
+                <input type="checkbox" name="select_items" value="대출" id="select_checkbox">
+            </div>
+    
+            <div id="financial_instruments" name="fi5" style="margin-top: 1010px; margin-left:215px;">
+                <div name="title" id="item_title">
+                    <strong>KB 가족부동산 지킴신탁</strong>
+                </div>
+                
+                <div name="information" id="item_information">
+                    <p>키워드: 신탁</p>
+                    <p>가입대상: 만 19세 이상 개인</p>
+                    <p>신탁금액: 5억원 이상</p> 
+                </div>
+
+                <input type="checkbox" name="select_items" value="신탁" id="select_checkbox">
+            </div>
+    
+            <div id="financial_instruments" name="fi6" style="margin-top: 1010px; margin-left:865px;">
+                <div name="title" id="item_title">
+                    <strong>(무)KB국민의연금보험</strong>
+                </div>
+                
+                <div name="information" id="item_information">
+                    <p>키워드: 보험/공제</p>
+                    <p>가입목적: 노후연금마련</p>
+                    <p>가입한도: 10만원 이상</p> 
+                </div>
+
+                <input type="checkbox" name="select_items" value="보험공제" id="select_checkbox">
+            </div>
+        </div>
+        <input type="checkbox" name="select_items" value="nothing" checked hidden>
+        <input type="submit" value="선택완료" style="margin-top: 1360px; margin-left: 1245px; height: 60px; width: 170px; border-radius: 10px; background-color: #ffce11; font-size: 25px; font-weight: 500;">
+    </form>
+</div>
+{% endblock %}

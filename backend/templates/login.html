@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>  
+        <title>Katering</title>
+        <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+    </head>
+    <body style="background-image:url('https://i.ibb.co/gJhkNqz/login.png'); background-size: 1890px 1040px;">
+        <style>
+            * {font-family: Pretendard,'Noto Sans KR', sans-serif;}
+            .pull {
+                position:relative; 
+                margin: 30px; 
+                padding: 3px 10px 3px 10px; 
+                width:325px; 
+                height:300px; 
+                color: black; 
+                background-color: white; 
+                margin-left: 80px; 
+                text-align: center; 
+                font-weight: 700;
+                border-width: 0px 2px 2px 0px;
+                box-shadow: 1px 2px 3px 0px #5c5b5b2d;
+                border-color: #5c5b5b2d;
+            }
+            .pull:after {
+                content:""; 
+                position: absolute; 
+                top: 15px; 
+                right: 300px; 
+                border-right: 120px solid white; 
+                border-top:30px solid transparent; 
+                border-bottom: 50px solid transparent;
+            }
+        </style>
+        <div class="pull" style="margin-left:760px; margin-top: 305px;">
+            <br>
+            <span style="font-size: 30px;">금융</span><span>이 어렵다면?</span><br>
+            <span style="font-size: 30px;">케이터링</span><span>하세요!</span>
+            <form method = 'POST' id="login" action="/login" style="margin-top: -10px; margin-left: -100px;">
+                <input type="text" name="ID" id="ID" placeholder="ID를 입력해주세요" style="font-size:16px; height: 30px; width: 245px; border-color: #ffce11; border-width: 1px; border-radius: 3px; margin-top: 30px; margin-left: 100px;"><br>
+                <input type="password" name="PW" placeholder="PW를 입력해주세요" style="font-size:16px; height: 30px; width: 245px; border-color: #ffce11; border-width: 1px; border-radius: 3px; margin-top: 10px; margin-left: 100px;"><br>
+                <input type="submit" value="로그인" style="font-size:16px; height: 30px; width: 250px; border-width: 0px; border-radius: 3px; margin-top: 10px; margin-left: 100px; background-color: #ffce11;">
+                <input type="submit" value="회원가입" style="font-size:16px; height: 30px; width: 250px; border-width: 0px; border-radius: 3px; margin-top: 10px; margin-left: 100px; background-color: #ffce11;">
+            </form>
+        </div>
+    </body>
+</html>
